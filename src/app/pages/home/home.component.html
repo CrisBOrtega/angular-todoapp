@@ -1,0 +1,32 @@
+<p>home works!</p>
+<header class="header">
+    <div class="container">
+        <h1>My day</h1>
+        <p>All my task in one place</p>
+        <input
+              type="text"
+              class="new-todo"
+              placeholder="type new todo"
+              autofocus
+              type="text"
+              (change)="changeHandler($event)"
+        />
+    </div>
+</header>
+<div class="container todoapp-wrapper">
+    <section class="main">
+        <ul class="todo-list">
+          @for (t of tareas(); track t; let idx = $index) {
+            <li>
+                <div class="view">
+                  <input class="toggle" type="checkbox" />
+                  <label>{{ t }}</label>
+                  <button class="destroy" (click)="deleteTarea(idx)"></button>
+                </div>
+                <input class="edit">
+            </li>
+          }
+        </ul>
+    </section>
+</div>
+

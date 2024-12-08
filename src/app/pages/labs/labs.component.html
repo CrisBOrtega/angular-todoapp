@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>{{ welcome }}</h1>
+  <ul>
+    <p> Total de tareas: {{ tareas().length }}</p>
+    @for (t of tareas(); track t; let idx = $index) {
+      <li>
+        {{ idx }} - {{ t }}
+      </li>
+
+    }
+
+  </ul>
+  <p> nombre {{ nombre() }}</p>
+  <input type="text" [value]="nombre()">
+  <button [disabled]="deshabilitado">Guardart</button>
+  <hr>
+  <button (click)="clickHandler()">Clickme</button>
+  <br>
+  <button (dblclick)="clickHandler()">Clickme</button>
+  <br>
+  <p>(change)</p>
+  <input type="number"
+         [value]="person1.age"
+         (change)="changeHandler($event)"
+  >
+  <br>
+  <p>(keydown)</p>
+  <input type="text"
+         [value]="person1.name"
+         (keydown)="keyDownHandler($event)"
+  >
+  <br>
+  <p>(keydown combinacion de teclas)</p>
+  <input type="text"
+         [value]="person1.dios"
+         (keydown.enter)="keyDownHandler($event)"
+  >
+
+</div>
+
