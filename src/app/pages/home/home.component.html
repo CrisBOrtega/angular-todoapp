@@ -14,13 +14,18 @@
     </div>
 </header>
 <div class="container todoapp-wrapper">
+  <pre>
+    <code>
+
+    </code>
+  </pre>
     <section class="main">
         <ul class="todo-list">
           @for (t of tareas(); track t; let idx = $index) {
             <li>
                 <div class="view">
                   <input class="toggle" type="checkbox" />
-                  <label>{{ t }}</label>
+                  <label>{{ t.title }}</label>
                   <button class="destroy" (click)="deleteTarea(idx)"></button>
                 </div>
                 <input class="edit">
