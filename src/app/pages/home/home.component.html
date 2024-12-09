@@ -24,7 +24,11 @@
           @for (t of tareas(); track t; let idx = $index) {
             <li>
                 <div class="view">
-                  <input class="toggle" type="checkbox" />
+                  <input class="toggle"
+                         type="checkbox"
+                         [checked]="t.completed"
+                         (change)="updateTarea(idx)"
+                  />
                   <label>{{ t.title }}</label>
                   <button class="destroy" (click)="deleteTarea(idx)"></button>
                 </div>
@@ -33,5 +37,10 @@
           }
         </ul>
     </section>
+    <footer class="footer">
+        <span class="todo-count">
+            <strong>{{ tareas().length }}</strong> items
+        </span>
+    </footer>
 </div>
 

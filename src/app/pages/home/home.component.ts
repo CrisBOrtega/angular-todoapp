@@ -48,4 +48,20 @@ export class HomeComponent {
     this.tareas.update((tareas) => tareas.filter((tarea, position)=> position !== index))
 
   }
+
+  updateTarea(index:number){
+    this.tareas.update((tareas) => {
+          return tareas.map((tarea , position)=> {
+              if(position === index){
+                return{
+                  ...tarea ,
+                  completed: !tarea.completed
+                }
+              }
+              return tarea;
+          })
+      }
+    )
+    console.log(this.tareas());
+  }
 }
