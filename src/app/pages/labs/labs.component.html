@@ -10,6 +10,29 @@
     }
 
   </ul>
+  <hr>
+  @if (1 !== 1){
+    <div>
+      My content
+    </div>
+  }
+  <hr>
+  <hr>
+  @if (person2().age < 18){
+    <div>
+       MEnor de edad
+    </div>
+  }@else{
+    <div>
+      mayor de edad
+    </div>
+  }
+  <hr>
+  <input type="number"
+         [value]="person2().age"
+         (change)="changeAge($event)"
+  >
+  <hr>
   <p> nombre {{ nombre() }}</p>
   <input type="text" [value]="nombre()">
   <button [disabled]="deshabilitado">Guardart</button>

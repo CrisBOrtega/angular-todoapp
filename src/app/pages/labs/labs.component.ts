@@ -21,6 +21,12 @@ export class LabsComponent {
     age: 56
   }
 
+  person2 = signal({
+    name: "vanesa",
+    dios: "solano",
+    age: 19
+  })
+
   clickHandler = () => {
     alert('clicked');
   }
@@ -33,5 +39,16 @@ export class LabsComponent {
     const input = evt.target as HTMLInputElement;
     const newValue = input.value;
     this.nombre.set(newValue)
+  }
+
+  changeAge(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person2.update(prevState => {
+         return {
+           ...prevState,
+           age: parseInt(newValue,10)
+         }
+    })
   }
 }
